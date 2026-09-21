@@ -2,8 +2,29 @@
 #define size 5
 int stack[size];
 int top=-1;
+int isEmpty()
+{
+    if(top==-1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+int isFull()
+{
+    if(top==size-1)
+    {
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
 void push(int x){
-    if(top==size-1){
+    if(isFull()){
         printf("Stack Overflow");
     }else{
         top++;
@@ -12,13 +33,14 @@ void push(int x){
     
 }
 void pop(){
-    if(top==-1){
-        printf("Underflow");
+    if(isEmpty()){
+        printf("Stack Underflow");
     }else{
         printf("popped element:%d\n",stack[top]);
         top--;
     }
 }
+
 void main(){
     push(10);
     push(20);
@@ -31,5 +53,5 @@ void main(){
     pop();
     pop();
     pop();
-    
+
 }
